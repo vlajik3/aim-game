@@ -100,3 +100,7 @@ h1 {
   border-radius: 50%;
   cursor: pointer;
 }
+
+.circle:hover {
+  box-shadow: 0px 1px 30px 1px rgb(190, 189, 189);
+}

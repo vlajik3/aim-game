@@ -3,6 +3,7 @@ const screens = document.querySelectorAll('.screen')
 const timeList = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('.board')
+const refresh = document.querySelector('.refresh')
 const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71', '#fff', '#000']
 let time = 0
 let score = 0
@@ -28,9 +29,9 @@ board.addEventListener('click', event => {
     }
 })
 
-
+let interval;
 function startGame() {
-    setInterval(decreaseTime, 1000)
+    interval = setInterval(decreaseTime, 1000)
     createRandomCircle()
     setTime(time)
 }
@@ -54,13 +55,21 @@ function setTime(value) {
 
 function finishGame() {
     timeEl.parentNode.classList.add('hide')
-    board.innerHTML = `<h1>Счёт:<span class='primary'></span> ${score} </h1>`
-
+    board.innerHTML = `<div><h1>Счёт:<span class='primary'></span> ${score} </h1></div>
+    <div  style='color:#16D9E3;'><a class='refresh'>Заново</a></div>`
+    clearInterval(interval)
 }
+
+// if(refresh) {
+//     refresh.addEventListener('click', (event) => {
+//         startGame()
+//     })
+// }
+
 
 function createRandomCircle() {
     const circle = document.createElement('div')
-    const size = getRandomNumber(10, 60)
+    const size = getRandomNumber(20, 80)
     const {width, height} = board.getBoundingClientRect()
     const x = getRandomNumber(0, width - size)
     const y = getRandomNumber(0, height - size)

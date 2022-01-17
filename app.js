@@ -55,11 +55,11 @@ function setTime(value) {
 
 function finishGame() {
     timeEl.parentNode.classList.add('hide')
-    board.innerHTML = `<div><h1>Счёт:<span class='primary'></span> ${score} </h1></div>
-    <div  style='color:#16D9E3;'><a class='refresh'>Заново</a></div>`
+    board.innerHTML = `<div><h1>Счёт:<span class='primary'></span> ${score} </h1></div>`
     clearInterval(interval)
 }
 
+{/* <div  style='color:#16D9E3;'><a href='#'>Заново</a></div> */}
 // if(refresh) {
 //     refresh.addEventListener('click', (event) => {
 //         startGame()
